@@ -2,7 +2,7 @@
 $(function(){
 var user = "<h1>hello, TypeScript!!</h1>";
 
-document.body.innerHTML = user;
+//document.body.innerHTML = user;
 });
 
 interface Pos {

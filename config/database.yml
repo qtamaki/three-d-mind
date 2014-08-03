@@ -13,7 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  socket: /tmp/mysql.sock
+#  socket: /tmp/mysql.sock
+  host: localhost
 
 development:
   <<: *default
