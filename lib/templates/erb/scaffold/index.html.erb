@@ -1,0 +1,31 @@
+<h1><%%= getLongName('table_name','<%= plural_table_name %>')%> 一覧</h1>
+
+<%%= paginate(@<%= plural_table_name %>) %>
+
+<table class="list_table table-bordered table-hover">
+  <tr>
+<% attributes.each do |attribute|
+   next if [:created_at, :updated_at, :lock_version, :deleted_at, :deleted].include?(attribute.name) -%>
+    <th><%%= getLongName('<%= plural_table_name %>', '<%= attribute.name %>') %></th>
+<% end -%>
+  </tr>
+
+<%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+  <tr>
+<% attributes.each do |attribute|
+   next if [:created_at, :updated_at, :lock_version, :deleted_at, :deleted].include?(attribute.name) -%>
+<%- if attribute === attributes[0] -%>
+    <td><%%= back_to_link <%= singular_table_name %>.<%= attribute.name %>, <%= singular_table_name %> %></td>
+<%- else -%>
+    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<%- end -%>
+<% end -%>
+  </tr>
+<%% end %>
+</table>
+
+<br />
+
+<%%= paginate(@<%= plural_table_name %>) %>
+
+<%%= back_to_link getLongName('table_name','<%= plural_table_name %>') + ' の新規作成', new_<%= singular_table_name %>_path %>
