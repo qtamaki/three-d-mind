@@ -1,0 +1,33 @@
+<h1><%= getLongName('table_name','sys_configs')%> 一覧</h1>
+
+<%= paginate(@sys_configs) %>
+
+<table class="list_table table-bordered table-hover">
+  <tr>
+    <th><%= getLongName('sys_configs', 'config_section') %></th>
+    <th><%= getLongName('sys_configs', 'config_key') %></th>
+    <th><%= getLongName('sys_configs', 'value1') %></th>
+    <th><%= getLongName('sys_configs', 'value2') %></th>
+    <th><%= getLongName('sys_configs', 'value3') %></th>
+    <th><%= getLongName('sys_configs', 'value_long') %></th>
+    <th><%= getLongName('sys_configs', 'config_description_text') %></th>
+  </tr>
+
+<% @sys_configs.each do |sys_config| %>
+  <tr>
+    <td><%= back_to_link sys_config.config_section, sys_config %></td>
+    <td><%= sys_config.config_key %></td>
+    <td><%= sys_config.value1 %></td>
+    <td><%= sys_config.value2 %></td>
+    <td><%= sys_config.value3 %></td>
+    <td><%= sys_config.value_long %></td>
+    <td><%= sys_config.config_description_text %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= paginate(@sys_configs) %>
+
+<%= back_to_link getLongName('table_name','sys_configs') + ' の新規作成', new_sys_config_path %>

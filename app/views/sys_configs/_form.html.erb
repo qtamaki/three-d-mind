@@ -1,0 +1,49 @@
+<%= form_for(@sys_config) do |f| %>
+<%= hidden_field_tag 'back_to', back_to %>
+<%= f.hidden_field :lock_version %>
+  <% if @sys_config.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sys_config.errors.count, "error") %> prohibited this sys_config from being saved:</h2>
+
+      <ul>
+      <% @sys_config.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table class="form_table">
+  <tr>
+    <th><%= f.label :config_section, getLongName('sys_configs', 'config_section') %></th>
+    <td><%= f.text_field :config_section %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :config_key, getLongName('sys_configs', 'config_key') %></th>
+    <td><%= f.text_field :config_key %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :value1, getLongName('sys_configs', 'value1') %></th>
+    <td><%= f.text_field :value1 %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :value2, getLongName('sys_configs', 'value2') %></th>
+    <td><%= f.text_field :value2 %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :value3, getLongName('sys_configs', 'value3') %></th>
+    <td><%= f.text_field :value3 %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :value_long, getLongName('sys_configs', 'value_long') %></th>
+    <td><%= f.text_field :value_long %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :config_description_text, getLongName('sys_configs', 'config_description_text') %></th>
+    <td><%= f.text_field :config_description_text %></td>
+  </tr>
+</table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

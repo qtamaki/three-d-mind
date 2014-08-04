@@ -2,18 +2,19 @@
 $(function(){
 var user = "<h1>hello, TypeScript!!</h1>";
 
+JSON.stringify(user);
 //document.body.innerHTML = user;
 });
 
 interface Pos {
-  x: Number;
-  y: Number;
+  x: number;
+  y: number;
 }
 
 interface Node {
   pos: Pos;
-  text: String;
-  node_color: String;
+  text: string;
+  node_color: string;
   nodes: Node[];
 }
 
@@ -22,8 +23,8 @@ interface Note {
 }
 
 interface User {
-  nick_name: String;
-  user_id: String;
+  nick_name: string;
+  user_id: string;
   notes: Note[];
 }
 

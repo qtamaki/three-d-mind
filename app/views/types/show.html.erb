@@ -1,0 +1,49 @@
+<h1><%= getLongName('table_name','types')%> 詳細</h1>
+
+<table class="show_table">
+  <tr>
+    <th><%= getLongName('types', 'type_section') %></th>
+    <td><%= @type.type_section %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'type_key') %></th>
+    <td><%= @type.type_key %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'long_name') %></th>
+    <td><%= @type.long_name %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'short_name') %></th>
+    <td><%= @type.short_name %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'other_name') %></th>
+    <td><%= @type.other_name %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'type_description') %></th>
+    <td><%= @type.type_description %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'type_description_text') %></th>
+    <td><%= @type.type_description_text %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'display_order1') %></th>
+    <td><%= @type.display_order1 %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'display_order2') %></th>
+    <td><%= @type.display_order2 %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('types', 'logic_bind_type') %></th>
+    <td><%= @type.logic_bind_type %></td>
+  </tr>
+</table>
+
+<%= back_to_link '編集', edit_type_path(@type) %> |
+<%= link_to 'Destroy', type, method: :delete, data: { confirm: '削除します。よろしいですか?' } %> |
+<%= link_or_back '戻る', types_path %>
+

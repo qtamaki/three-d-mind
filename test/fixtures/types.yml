@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_section: MyString
+  type_key: MyString
+  long_name: MyString
+  short_name: MyString
+  other_name: MyString
+  type_description: MyString
+  type_description_text: MyString
+  display_order1: 1
+  display_order2: 1
+  logic_bind_type: MyString
+
+two:
+  type_section: MyString
+  type_key: MyString
+  long_name: MyString
+  short_name: MyString
+  other_name: MyString
+  type_description: MyString
+  type_description_text: MyString
+  display_order1: 1
+  display_order2: 1
+  logic_bind_type: MyString

@@ -1,0 +1,33 @@
+<h1><%= getLongName('table_name','names')%> 一覧</h1>
+
+<%= paginate(@names) %>
+
+<table class="list_table table-bordered table-hover">
+  <tr>
+    <th><%= getLongName('names', 'name_locale') %></th>
+    <th><%= getLongName('names', 'name_section') %></th>
+    <th><%= getLongName('names', 'name_key') %></th>
+    <th><%= getLongName('names', 'long_name') %></th>
+    <th><%= getLongName('names', 'short_name') %></th>
+    <th><%= getLongName('names', 'other_name') %></th>
+    <th><%= getLongName('names', 'name_description') %></th>
+  </tr>
+
+<% @names.each do |name| %>
+  <tr>
+    <td><%= back_to_link name.name_locale, name %></td>
+    <td><%= name.name_section %></td>
+    <td><%= name.name_key %></td>
+    <td><%= name.long_name %></td>
+    <td><%= name.short_name %></td>
+    <td><%= name.other_name %></td>
+    <td><%= name.name_description %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= paginate(@names) %>
+
+<%= back_to_link getLongName('table_name','names') + ' の新規作成', new_name_path %>

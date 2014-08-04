@@ -45,3 +45,5 @@ gem 'typescript-rails'
 
 gem 'devise'
 
+gem 'kaminari'
+

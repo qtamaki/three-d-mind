@@ -1,0 +1,37 @@
+<h1><%= getLongName('table_name','names')%> 詳細</h1>
+
+<table class="show_table">
+  <tr>
+    <th><%= getLongName('names', 'name_locale') %></th>
+    <td><%= @name.name_locale %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('names', 'name_section') %></th>
+    <td><%= @name.name_section %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('names', 'name_key') %></th>
+    <td><%= @name.name_key %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('names', 'long_name') %></th>
+    <td><%= @name.long_name %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('names', 'short_name') %></th>
+    <td><%= @name.short_name %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('names', 'other_name') %></th>
+    <td><%= @name.other_name %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('names', 'name_description') %></th>
+    <td><%= @name.name_description %></td>
+  </tr>
+</table>
+
+<%= back_to_link '編集', edit_name_path(@name) %> |
+<%= link_to 'Destroy', name, method: :delete, data: { confirm: '削除します。よろしいですか?' } %> |
+<%= link_or_back '戻る', names_path %>
+

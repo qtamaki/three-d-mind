@@ -1,0 +1,39 @@
+<h1><%= getLongName('table_name','types')%> 一覧</h1>
+
+<%= paginate(@types) %>
+
+<table class="list_table table-bordered table-hover">
+  <tr>
+    <th><%= getLongName('types', 'type_section') %></th>
+    <th><%= getLongName('types', 'type_key') %></th>
+    <th><%= getLongName('types', 'long_name') %></th>
+    <th><%= getLongName('types', 'short_name') %></th>
+    <th><%= getLongName('types', 'other_name') %></th>
+    <th><%= getLongName('types', 'type_description') %></th>
+    <th><%= getLongName('types', 'type_description_text') %></th>
+    <th><%= getLongName('types', 'display_order1') %></th>
+    <th><%= getLongName('types', 'display_order2') %></th>
+    <th><%= getLongName('types', 'logic_bind_type') %></th>
+  </tr>
+
+<% @types.each do |type| %>
+  <tr>
+    <td><%= back_to_link type.type_section, type %></td>
+    <td><%= type.type_key %></td>
+    <td><%= type.long_name %></td>
+    <td><%= type.short_name %></td>
+    <td><%= type.other_name %></td>
+    <td><%= type.type_description %></td>
+    <td><%= type.type_description_text %></td>
+    <td><%= type.display_order1 %></td>
+    <td><%= type.display_order2 %></td>
+    <td><%= type.logic_bind_type %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= paginate(@types) %>
+
+<%= back_to_link getLongName('table_name','types') + ' の新規作成', new_type_path %>

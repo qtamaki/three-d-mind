@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def current_user
+    current_auth
+  end
+
+  def logged_in?
+    auth_signed_in?
+  end
+
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :nickname
     devise_parameter_sanitizer.for(:account_update) << :nickname

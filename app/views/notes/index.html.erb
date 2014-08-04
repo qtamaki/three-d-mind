@@ -1,0 +1,21 @@
+<h1><%= getLongName('table_name','notes')%> 一覧</h1>
+
+<%= paginate(@notes) %>
+
+<table class="list_table table-bordered table-hover">
+  <tr>
+    <th><%= getLongName('notes', 'note_title') %></th>
+  </tr>
+
+<% @notes.each do |note| %>
+  <tr>
+    <td><%=back_to_link note.note_title, note_path(note) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= paginate(@notes) %>
+
+<%= back_to_link getLongName('table_name','notes') + ' の新規作成', new_note_path %>

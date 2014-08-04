@@ -5,11 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   before_save :create_login
 
-  validates_presence_of :nickname
+  validates_presence_of :nickname, :per_page
 
   def create_login
     self.login = self.email
     self.access_level_type = 'normal' if access_level_type.blank?
+    self.per_page = 50
   end
 
 #  def self.find_for_database_authentication(conditions)

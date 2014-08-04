@@ -1,0 +1,61 @@
+<%= form_for(@type) do |f| %>
+<%= hidden_field_tag 'back_to', back_to %>
+<%= f.hidden_field :lock_version %>
+  <% if @type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@type.errors.count, "error") %> prohibited this type from being saved:</h2>
+
+      <ul>
+      <% @type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table class="form_table">
+  <tr>
+    <th><%= f.label :type_section, getLongName('types', 'type_section') %></th>
+    <td><%= f.text_field :type_section %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :type_key, getLongName('types', 'type_key') %></th>
+    <td><%= f.text_field :type_key %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :long_name, getLongName('types', 'long_name') %></th>
+    <td><%= f.text_field :long_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :short_name, getLongName('types', 'short_name') %></th>
+    <td><%= f.text_field :short_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :other_name, getLongName('types', 'other_name') %></th>
+    <td><%= f.text_field :other_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :type_description, getLongName('types', 'type_description') %></th>
+    <td><%= f.text_field :type_description %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :type_description_text, getLongName('types', 'type_description_text') %></th>
+    <td><%= f.text_field :type_description_text %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :display_order1, getLongName('types', 'display_order1') %></th>
+    <td><%= f.number_field :display_order1 %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :display_order2, getLongName('types', 'display_order2') %></th>
+    <td><%= f.number_field :display_order2 %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :logic_bind_type, getLongName('types', 'logic_bind_type') %></th>
+    <td><%= f.text_field :logic_bind_type %></td>
+  </tr>
+</table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

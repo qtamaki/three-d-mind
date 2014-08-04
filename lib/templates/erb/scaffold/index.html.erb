@@ -1,29 +1,31 @@
-<h1>Listing <%= plural_table_name %></h1>
+<h1><%%= getLongName('table_name','<%= plural_table_name %>')%> 一覧</h1>
 
-<table>
-  <thead>
-    <tr>
-<% attributes.reject(&:password_digest?).each do |attribute| -%>
-      <th><%= attribute.human_name %></th>
-<% end -%>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%%= paginate(@<%= plural_table_name %>) %>
 
-  <tbody>
-    <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
-      <tr>
-<% attributes.reject(&:password_digest?).each do |attribute| -%>
-        <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<table class="list_table table-bordered table-hover">
+  <tr>
+<% attributes.each do |attribute|
+   next if [:created_at, :updated_at, :lock_version, :deleted_at, :deleted].include?(attribute.name) -%>
+    <th><%%= getLongName('<%= plural_table_name %>', '<%= attribute.name %>') %></th>
 <% end -%>
-        <td><%%= link_to 'Show', <%= singular_table_name %> %></td>
-        <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
-        <td><%%= link_to 'Destroy', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%% end %>
-  </tbody>
+  </tr>
+
+<%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+  <tr>
+<% attributes.each do |attribute|
+   next if [:created_at, :updated_at, :lock_version, :deleted_at, :deleted].include?(attribute.name) -%>
+<%- if attribute === attributes[0] -%>
+    <td><%%= back_to_link <%= singular_table_name %>.<%= attribute.name %>, <%= singular_table_name %> %></td>
+<%- else -%>
+    <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+<%- end -%>
+<% end -%>
+  </tr>
+<%% end %>
 </table>
 
-<br>
+<br />
 
-<%%= link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path %>
+<%%= paginate(@<%= plural_table_name %>) %>
+
+<%%= back_to_link getLongName('table_name','<%= plural_table_name %>') + ' の新規作成', new_<%= singular_table_name %>_path %>

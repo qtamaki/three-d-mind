@@ -1,0 +1,37 @@
+<h1><%= getLongName('table_name','sys_configs')%> 詳細</h1>
+
+<table class="show_table">
+  <tr>
+    <th><%= getLongName('sys_configs', 'config_section') %></th>
+    <td><%= @sys_config.config_section %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('sys_configs', 'config_key') %></th>
+    <td><%= @sys_config.config_key %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('sys_configs', 'value1') %></th>
+    <td><%= @sys_config.value1 %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('sys_configs', 'value2') %></th>
+    <td><%= @sys_config.value2 %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('sys_configs', 'value3') %></th>
+    <td><%= @sys_config.value3 %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('sys_configs', 'value_long') %></th>
+    <td><%= @sys_config.value_long %></td>
+  </tr>
+  <tr>
+    <th><%= getLongName('sys_configs', 'config_description_text') %></th>
+    <td><%= @sys_config.config_description_text %></td>
+  </tr>
+</table>
+
+<%= back_to_link '編集', edit_sys_config_path(@sys_config) %> |
+<%= link_to 'Destroy', sys_config, method: :delete, data: { confirm: '削除します。よろしいですか?' } %> |
+<%= link_or_back '戻る', sys_configs_path %>
+
