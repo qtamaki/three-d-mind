@@ -103,6 +103,13 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
+    typescript-node (0.0.6)
+      typescript-src (~> 1.0)
+    typescript-rails (0.2.0)
+      railties
+      tilt
+      typescript-node
+    typescript-src (1.0.0.0)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -122,4 +129,5 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   turbolinks
+  typescript-rails
   uglifier (>= 1.3.0)
