@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password:
   socket: /tmp/mysql.sock
 
 development:
   <<: *default
-  database: three-d-mind_development
+  username: tdmind_dev
+  password: tdmind_dev
+  database: tdmind_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
