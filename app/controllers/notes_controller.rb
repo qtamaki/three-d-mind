@@ -23,6 +23,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user_id = current_user.id
+    @note.note_contents = "{\"rootKeyword\":\"#{@note.note_title}\",\"keywords\":{\"#{@note.note_title}\":[]}}"
 
     if @note.save
       redirect_to @note, notice: 'Note was successfully created.'
@@ -50,7 +51,7 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id]).where(deleted: 0, user_id: current_user.id)
+      @note = Note.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

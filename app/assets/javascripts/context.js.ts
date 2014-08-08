@@ -1,5 +1,6 @@
 /// <reference path="jquery.d.ts" />
 /// <reference path="jqueryui.d.ts" />
+/// <reference path="keyword.js.ts" />
 
 class KeywordProperty {
   ellipse_height: number;
@@ -17,18 +18,18 @@ class Context {
   // members
   stageHeight: number;
   stageWidth: number;
-  rootKeyword: string;
+  manager: KeywordManager;
   currentKeyword: string;
   currentPath: string[];
   keywordProperty: KeywordProperty;
 
-  constructor(stageHeight: number, stageWidth: number, keywordProperty: KeywordProperty, keyword: string) {
+  constructor(stageHeight: number, stageWidth: number, keywordProperty: KeywordProperty, manager: KeywordManager) {
     this.stageHeight = stageHeight;
     this.stageWidth = stageWidth;
     this.keywordProperty = keywordProperty;
-    this.rootKeyword = keyword;
-    this.currentKeyword = keyword;
-    this.currentPath = [keyword];
+    this.manager = manager;
+    this.currentKeyword = manager.rootKeyword;
+    this.currentPath = [manager.rootKeyword];
   }
 
   effectHeight(x: number): number { return x * (this.stageHeight - this.keywordProperty.ellipse_height) + (this.keywordProperty.ellipse_height / 2) }
