@@ -35,10 +35,14 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   def update
     @note.attributes = note_params
-    if @note.save
-      redirect_to @note, notice: 'Note was successfully updated.'
-    else
-      render :edit
+    respond_to do |format|
+      if @note.save
+        format.html {redirect_to @note, notice: 'Note was successfully updated.'}
+        format.json {render :text => 'OK', :layout => false}
+      else
+        format.html {render :edit }
+        format.json {render :text => 'NG', :layout => false, status: :unprocessable_entity}
+      end
     end
   end
 

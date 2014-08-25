@@ -1,4 +1,7 @@
-<div id="note-container" note_id="<%=@note.id%>" note_url="<%=note_path(@note, :json)%>"></div>
+<div id="note-container" note_id="<%=@note.id%>" note_url="<%=note_path(@note, :json)%>" lock_version="<%=@note.lock_version%>">
+	<input type="text" id='inputbox'><div id="breadcrumb"></div>
+	<input type="button" id='save' value="Save">
+</div>
 
 <% if false %>
 <h1><%= getLongName('table_name','notes')%> 詳細</h1>
