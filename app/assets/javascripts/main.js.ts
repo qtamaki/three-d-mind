@@ -1,9 +1,9 @@
-/// <reference path="d3.d.ts" />
-/// <reference path="jquery.d.ts" />
-/// <reference path="jqueryui.d.ts" />
-/// <reference path="context.js.ts" />
-/// <reference path="keyword.js.ts" />
-/// <reference path="view_controller.js.ts" />
+/// <reference path="ts/d3.d.ts" />
+/// <reference path="ts/jquery.d.ts" />
+/// <reference path="ts/jqueryui.d.ts" />
+/// <reference path="ts/context.js.ts" />
+/// <reference path="ts/keyword.js.ts" />
+/// <reference path="ts/view_controller.js.ts" />
 
 /* data image.
 var x = {
@@ -21,8 +21,6 @@ var x = {
   }
 }
 */
-
-
 function initInputBox(view: ViewController) {
   $('#inputbox')
     .on('keydown', function(e) {

@@ -34,10 +34,21 @@ class Context {
 
   childKeywords(): Keyword[] { return this.manager.keywords[this.currentKeyword]; }
 
+  childCount(keyword: string): number {
+    if(this.manager.keywords[keyword]) {
+      return this.manager.keywords[keyword].length;
+    }else{
+      return 0;
+    }
+  }
+
   ratioToHeight(x: number): number { return x * (this.stageHeight - this.keywordProperty.ellipse_height) + (this.keywordProperty.ellipse_height / 2) }
   ratioToWidth(x: number): number { return x * (this.stageWidth - this.keywordProperty.ellipse_width) + (this.keywordProperty.ellipse_width / 2) }
   heightToRatio(x: number): number { return (x - (this.keywordProperty.ellipse_height / 2)) / (this.stageHeight - this.keywordProperty.ellipse_height) }
   widthToRatio(x: number): number { return (x - (this.keywordProperty.ellipse_width / 2)) / (this.stageWidth - this.keywordProperty.ellipse_width) }
+
+  calcTubuCX(i: number): number { return (this.keywordProperty.ellipse_width * Math.sin(i * 10 * (Math.PI / 180)));}
+  calcTubuCY(i: number): number { return (this.keywordProperty.ellipse_height * Math.cos(i * 10 * (Math.PI / 180)));}
 
   // 指定のキーワードに掘り下げる
   downKeyword(newKeyword: string): void {

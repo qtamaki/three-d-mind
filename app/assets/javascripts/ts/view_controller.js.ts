@@ -108,6 +108,24 @@ class ViewController {
       .attr({
         'font-size': function(d) {return _this.context.keywordProperty.font_size},
       });
+
+    if(!theme_mode) {
+      gr.selectAll('circle.tubu')
+        .data(function(d){ return Array(_this.context.childCount(d.keyword)).map(() => d);})
+        .enter()
+        .append('circle')
+        .attr({
+          'class': "tubu",
+          cx: function(d, i) {
+            return _this.context.calcTubuCX(i);
+          },
+          cy: function(d, i) {
+            return _this.context.calcTubuCY(i);
+          },
+          r: 5,
+          fill: "red"
+        });
+    }
   }
 
   addKeyword(keywordString: string): void {
