@@ -1,21 +1,29 @@
-<h1><%= getLongName('table_name','notes')%> 一覧</h1>
-
-<%= paginate(@notes) %>
-
-<table class="list_table table-bordered table-hover">
-  <tr>
-    <th><%= getLongName('notes', 'note_title') %></th>
-  </tr>
-
-<% @notes.each do |note| %>
-  <tr>
-    <td><%=back_to_link note.note_title, note_path(note) %></td>
-  </tr>
+<% if @notes.empty? %>
+  <div class="jumbotron">
+    <h1>Welcome to 3dmind!</h1>
+    <p>3dmind is the thinking auxiliary tools of a completely new Mind Map concept. <br/>
+    Your thought is more powerfully supported by taking the form near thinking of man rather than an old Mind Map. 
+    </p>
+    <p>
+    <%= back_to_link 'Get start now!', new_note_path, :class => "btn btn-primary btn-lg", :role=>"button" %>
+    </p>
+  </div>
+<% else %>
+  <div class="col-md-8">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+  <div class="list-group">
+    <% @notes.each do |note| %>
+      <%=back_to_link note.note_title, note_path(note), :class => "list-group-item" %>
+    <% end %>
+  </div>
+</div>
+  <div class="list-group">
+  <p>
+  <%= back_to_link '<i class="glyphicon glyphicon-file"></i> New note'.html_safe, new_note_path, :class => "btn btn-primary btn-md", :role=>"button" %>
+    </p>
+  </div>
+</div>
 <% end %>
-</table>
 
-<br />
-
-<%= paginate(@notes) %>
-
-<%= back_to_link getLongName('table_name','notes') + ' の新規作成', new_note_path %>

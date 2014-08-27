@@ -26,7 +26,8 @@ class NotesController < ApplicationController
     @note.note_contents = "{\"rootKeyword\":\"#{@note.note_title}\",\"keywords\":{\"#{@note.note_title}\":[]}}"
 
     if @note.save
-      redirect_to @note, notice: 'Note was successfully created.'
+      #redirect_to @note, notice: 'Note was successfully created.'
+      redirect_to @note
     else
       render :new
     end
@@ -60,6 +61,6 @@ class NotesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def note_params
-      params.require(:note).permit(:note_title, :note_contents)
+      params.require(:note).permit(:note_title, :note_contents, :lock_version)
     end
 end

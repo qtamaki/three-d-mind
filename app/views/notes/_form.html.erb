@@ -13,13 +13,12 @@
     </div>
   <% end %>
 
-<table class="form_table">
-  <tr>
-    <th><%= f.label :note_title, getLongName('notes', 'note_title') %></th>
-    <td><%= f.text_field :note_title %></td>
-  </tr>
-</table>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="col-md-8">
+<div class="form-group">
+  <%= f.label :note_title  %>
+  <%= f.text_field :note_title, {:class => "form-control"} %>
+</div>
+  <%= f.submit :class => "btn btn-primary btn-md" %>
+  <%= link_or_back 'Back', notes_path, :class => "btn btn-default btn-md" %>
   </div>
 <% end %>

@@ -26,13 +26,17 @@ class ViewController {
         if(d.px > 1 || d.py > 1 || d.px < 0 || d.py < 0) {
           var x = context.childKeywords();
           x.splice(x.indexOf(d), 1);
-          d3.selectAll('g')
-            .data([])
-            .exit()
-            .remove();
+          _this.removeAll();
           _this.redraw();
         }
       });
+  }
+
+  removeAll():void {
+    this.svg.selectAll('g')
+      .data([])
+      .exit()
+      .remove();
   }
   
   redraw(): void {
@@ -40,7 +44,15 @@ class ViewController {
   }
 
   draw(keyword: string): void {
-    $('#breadcrumb').text(this.context.currentPath.join(" > "));
+    var _this = this;
+    var context = this.context;
+    $('#breadcrumb').html($.map(this.context.currentPath, function(x,i) {return "<span class='label' idx="+i+" style='background-color: "+ViewController.colorScale(i+1)+"'>"+_this.hescape(x)+"</span>"}).join(" > "));
+    $('#breadcrumb span').on('click', function(e) {
+      var idx = + $(this).attr("idx");
+      context.changeDepth(idx);
+      _this.removeAll();
+      _this.redraw();
+    });
     this.drawElements(true, [new Keyword(0.5, 0.5, keyword)]);
     var keywords = this.context.manager.keywords[keyword];
     this.drawElements(false, keywords);
@@ -153,10 +165,7 @@ class ViewController {
         ry: this.context.stageHeight
       })
       .each("end", () => {
-        d3.selectAll('g')
-          .data([])
-          .exit()
-          .remove();
+        this.removeAll();
         ((keyword: Keyword) => {
           if (this.isCurrentKeyword(keyword.keyword)) {
             //
@@ -172,5 +181,6 @@ class ViewController {
 
   private static colorScale = d3.scale.category10();
 
+  private hescape(val:string):string { return $('<div />').text(val).html();}
 }
 

@@ -1,28 +1,5 @@
 <div id="note-container" note_id="<%=@note.id%>" note_url="<%=note_path(@note, :json)%>" lock_version="<%=@note.lock_version%>">
 	<input type="text" id='inputbox'><div id="breadcrumb"></div>
-	<input type="button" id='save' value="Save">
+	<input type="button" id='save' value="Save" class="btn btn-primary btn-md">
 </div>
 
-<% if false %>
-<h1><%= getLongName('table_name','notes')%> 詳細</h1>
-
-<table class="show_table">
-  <tr>
-    <th><%= getLongName('notes', 'user_id') %></th>
-    <td><%= @note.user_id %></td>
-  </tr>
-  <tr>
-    <th><%= getLongName('notes', 'note_title') %></th>
-    <td><%= @note.note_title %></td>
-  </tr>
-  <tr>
-    <th><%= getLongName('notes', 'note_contents') %></th>
-    <td><%= @note.note_contents %></td>
-  </tr>
-</table>
-
-<%= back_to_link '編集', edit_note_path(@note) %> |
-<%= link_to '削除', @note, method: :delete, data: { confirm: '削除します。よろしいですか?' } %> |
-<%= link_or_back '戻る', notes_path %>
-
-<% end %>

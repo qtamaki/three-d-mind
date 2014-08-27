@@ -67,5 +67,13 @@ class Context {
     this.currentKeyword = this.currentPath[this.currentPath.length - 1];
   }
 
+  changeDepth(idx): string {
+    var key = this.currentPath[idx];
+    if(!key) return this.currentKeyword;
+    this.currentPath = this.currentPath.splice(0, idx+1);
+    this.currentKeyword = key;
+    return key;
+  }
+
 }
 
