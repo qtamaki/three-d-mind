@@ -161,10 +161,13 @@ class ViewController {
   }
 
   onChangeKeyword(keyword: Keyword, node: any): void {
-    node.transition()
+    node.select('ellipse').transition()
+    //node.transition()
       .duration(300)
       .ease('in')
       .attr({
+        //'transform': (d, i) => {
+        //  return "translate(" + this.context.ratioToWidth(0.5) + "," + this.context.ratioToHeight(0.5) + ")";}
         rx: this.context.stageWidth,
         ry: this.context.stageHeight
       })
