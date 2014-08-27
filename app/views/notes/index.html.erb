@@ -1,11 +1,13 @@
 <% if @notes.empty? %>
   <div class="jumbotron">
-    <h1>Welcome to 3dmind!</h1>
-    <p>3dmind is the thinking auxiliary tools of a completely new Mind Map concept. <br/>
-    Your thought is more powerfully supported by taking the form near thinking of man rather than an old Mind Map. 
+    <h1>3dmind will suppert your thinking.</h1>
+    <p>Please open 3dmind, like when a brand-new note is opened. 
+    This is a tool which helps your thinking. 
+    You should just put the language thought of in order. 
+    3dmind pulls out the capability with which your brain was equipped by nature to the utmost. 
     </p>
     <p>
-    <%= back_to_link 'Get start now!', new_note_path, :class => "btn btn-primary btn-lg", :role=>"button" %>
+    <%= back_to_link 'Open new note and think!', new_note_path, :class => "btn btn-primary btn-lg", :role=>"button" %>
     </p>
   </div>
 <% else %>
