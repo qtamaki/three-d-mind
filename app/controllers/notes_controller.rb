@@ -39,7 +39,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save
         format.html {redirect_to @note, notice: 'Note was successfully updated.'}
-        format.json {render :text => 'OK', :layout => false}
+        format.json {render :text => @note.lock_version.to_s, :layout => false}
       else
         format.html {render :edit }
         format.json {render :text => 'NG', :layout => false, status: :unprocessable_entity}

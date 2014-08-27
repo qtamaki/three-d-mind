@@ -41,7 +41,7 @@ function initInputBox(view: ViewController) {
     .focus();
 }
 
-function initSaveButton(view: ViewController, note_url: string, lock_version: string) {
+function initSaveButton(view: ViewController, note_url: string) {
   $('#save').on('click', function(e) {
     $.ajax({
       type: 'PUT',
@@ -49,10 +49,14 @@ function initSaveButton(view: ViewController, note_url: string, lock_version: st
       data: {
         note: {
           note_contents: JSON.stringify(view.context.manager),
-          lock_version: lock_version
+          lock_version: view.context.lockVersion
         }
       },
-      success: () => {alert('保存しました');}
+      success: (data) => {
+        view.context.lockVersion = eval(data);
+        view.changed = false;
+        alert('保存しました');
+      }
     });
   });
 }
@@ -66,7 +70,7 @@ function init(note_data: any, note_url: string, lock_version: string) {
       document.documentElement.clientHeight,
       document.documentElement.clientWidth,
       new KeywordProperty(50, 100, 20),
-      manager);
+      manager, +lock_version);
 
   d3.select('#note-container')
     .append('svg')
@@ -77,7 +81,13 @@ function init(note_data: any, note_url: string, lock_version: string) {
   var view = new ViewController(d3.select('svg'), context);
   view.draw(manager.rootKeyword);
   initInputBox(view);
-  initSaveButton(view, note_url, lock_version);
+  initSaveButton(view, note_url);
+
+  window.onbeforeunload = function(event){
+    if(view.changed) {
+      event.returnValue = 'Any changes are unsaved. move out this page?';
+    }
+  }
 }
 
 $(function() {

@@ -22,14 +22,16 @@ class Context {
   currentKeyword: string;
   currentPath: string[];
   keywordProperty: KeywordProperty;
+  lockVersion: number;
 
-  constructor(stageHeight: number, stageWidth: number, keywordProperty: KeywordProperty, manager: KeywordManager) {
+  constructor(stageHeight: number, stageWidth: number, keywordProperty: KeywordProperty, manager: KeywordManager, lockVersion: number) {
     this.stageHeight = stageHeight;
     this.stageWidth = stageWidth;
     this.keywordProperty = keywordProperty;
     this.manager = manager;
     this.currentKeyword = manager.rootKeyword;
     this.currentPath = [manager.rootKeyword];
+    this.lockVersion = lockVersion;
   }
 
   childKeywords(): Keyword[] { return this.manager.keywords[this.currentKeyword]; }

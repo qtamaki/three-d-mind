@@ -7,6 +7,7 @@ class ViewController {
   svg: any;
   context: Context;
   drag: any;
+  changed: boolean;
 
   constructor(svg: any, context: Context){
     var _this = this;
@@ -21,6 +22,7 @@ class ViewController {
             return "translate(" + [ context.ratioToWidth(d.px), context.ratioToHeight(d.py) ] + ")"
           }
         })
+        _this.changed = true;
       })
       .on('dragend', function(d,i) {
         if(d.px > 1 || d.py > 1 || d.px < 0 || d.py < 0) {
@@ -30,6 +32,7 @@ class ViewController {
           _this.redraw();
         }
       });
+    this.changed = false;
   }
 
   removeAll():void {
@@ -141,6 +144,7 @@ class ViewController {
   }
 
   addKeyword(keywordString: string): void {
+    this.changed = true;
     var keyword = new Keyword(Math.random(), Math.random(), keywordString);
     this.context.childKeywords().push(keyword);
     this.redraw();
