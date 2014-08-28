@@ -69,7 +69,7 @@ function init(note_data: any, note_url: string, lock_version: string) {
   var context = new Context(
       document.documentElement.clientHeight,
       document.documentElement.clientWidth,
-      new KeywordProperty(50, 100, 20),
+      1,
       manager, +lock_version);
 
   d3.select('#note-container')

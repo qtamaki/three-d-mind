@@ -101,8 +101,8 @@ class ViewController {
       .transition()
       .duration(600)
       .attr({
-        rx: 100,
-        ry: 50
+        rx: this.context.keywordProperty.ellipse_width,
+        ry: this.context.keywordProperty.ellipse_height
       });
 
     gr.selectAll('text')
@@ -137,7 +137,7 @@ class ViewController {
           cy: function(d, i) {
             return _this.context.calcTubuCY(i);
           },
-          r: 5,
+          r: this.context.keywordProperty.ellipse_width / 20,
           fill: "red"
         });
     }

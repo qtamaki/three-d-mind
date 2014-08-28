@@ -24,10 +24,10 @@ class Context {
   keywordProperty: KeywordProperty;
   lockVersion: number;
 
-  constructor(stageHeight: number, stageWidth: number, keywordProperty: KeywordProperty, manager: KeywordManager, lockVersion: number) {
+  constructor(stageHeight: number, stageWidth: number, nodeScale: number, manager: KeywordManager, lockVersion: number) {
     this.stageHeight = stageHeight;
     this.stageWidth = stageWidth;
-    this.keywordProperty = keywordProperty;
+    this.keywordProperty = this.setupKeywordProperty(stageWidth, nodeScale);
     this.manager = manager;
     this.currentKeyword = manager.rootKeyword;
     this.currentPath = [manager.rootKeyword];
@@ -77,5 +77,13 @@ class Context {
     return key;
   }
 
+  // nodeの大きさを計算nodeScaleで倍率を指定
+  private setupKeywordProperty(width: number, nodeScale: number = 1): KeywordProperty {
+    var w = width / 20;
+    if (w > 100) w = 100;
+    if (w < 50) w = 50;
+    w = w * nodeScale;
+    return new KeywordProperty(w / 2, w, w / 5);
+  }
 }
 
