@@ -1,5 +1,9 @@
-<div id="note-container" note_id="<%=@note.id%>" note_url="<%=note_path(@note, :json)%>" lock_version="<%=@note.lock_version%>">
-	<input type="text" id='inputbox'><div id="breadcrumb"></div>
-	<input type="button" id='save' value="Save" class="btn btn-primary btn-md">
+<div id="note-container" note_id="<%=@note.id%>" note_url="<%=@read_only ? pub_note_path(@note, :json) : note_path(@note, :json)%>" lock_version="<%=@note.lock_version%>" published="<%=@note.published%>" read_only="<%=@read_only ? "1" : "0" %>">
+    <% if !@read_only %><input type="text" id='inputbox' placeholder="Input some words"><%end%><div id="breadcrumb" <%= @read_only ? "style='left:0px;'".html_safe : "style='left:230px;'".html_safe%>></div>
+    <% if !@read_only %>
+        <div id="published_url" style="<%= @note.published? ? "" : "display:none"%>">Published url: <input type="text" value="<%=pub_note_path(@note, :only_path => false)%>"></div>
+        <input type="button" id='publish_button' value="<%=@note.published? ? 'Unpublish' : 'Publish' %>" class="btn btn-info btn-md">
+        <input type="button" id='save_button' value="Save" class="btn btn-primary btn-md">
+    <% end %>
 </div>
 

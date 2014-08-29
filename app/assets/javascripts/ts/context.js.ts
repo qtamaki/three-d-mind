@@ -23,8 +23,10 @@ class Context {
   currentPath: string[];
   keywordProperty: KeywordProperty;
   lockVersion: number;
+  published: number;
+  read_only: number;
 
-  constructor(stageHeight: number, stageWidth: number, nodeScale: number, manager: KeywordManager, lockVersion: number) {
+  constructor(stageHeight: number, stageWidth: number, nodeScale: number, manager: KeywordManager, lockVersion: number, published: number, read_only: number) {
     this.stageHeight = stageHeight;
     this.stageWidth = stageWidth;
     this.keywordProperty = this.setupKeywordProperty(stageWidth, nodeScale);
@@ -32,6 +34,8 @@ class Context {
     this.currentKeyword = manager.rootKeyword;
     this.currentPath = [manager.rootKeyword];
     this.lockVersion = lockVersion;
+    this.published = published;
+    this.read_only = read_only;
   }
 
   childKeywords(): Keyword[] { return this.manager.keywords[this.currentKeyword]; }

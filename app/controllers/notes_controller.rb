@@ -1,5 +1,12 @@
 class NotesController < ApplicationController
+  skip_before_filter :authenticate_auth!, only: [:pub]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+
+  def pub
+    @note = Note.where(:id => params[:id], :published => 1, :deleted => 0).first
+    @read_only = true
+    render :show
+  end
 
   # GET /notes
   def index
@@ -56,11 +63,11 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])
+      @note = Note.where(:id => params[:id], :user_id => current_user.id, :deleted => 0).first
     end
 
     # Only allow a trusted parameter "white list" through.
     def note_params
-      params.require(:note).permit(:note_title, :note_contents, :lock_version)
+      params.require(:note).permit(:note_title, :note_contents, :published, :lock_version)
     end
 end

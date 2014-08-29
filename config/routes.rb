@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :names
 
-  resources :notes
+  resources :notes do
+    member do
+      get 'pub'
+    end
+  end
 
   devise_for :auth, :class_name => User, :controllers => {:sessions => 'auth/sessions'}
   # The priority is based upon order of creation: first created -> highest priority.
