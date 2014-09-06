@@ -56,7 +56,10 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1
   def destroy
-    @note.destroy
+    @note.deleted = 9
+    @note.deleted_at = Time.now
+    @note.updated_user = current_user.login
+    @note.save!
     redirect_to notes_url, notice: 'Note was successfully destroyed.'
   end
 
