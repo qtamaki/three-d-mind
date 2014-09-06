@@ -123,7 +123,7 @@ function init(note_data: any, note_url: string, lock_version: number, published:
 
 $(function() {
   var n = $('#note-container');
-  if(n) {
+  if(n.is('#note-container')) {
     var note_url = n.attr('note_url');
     var lock_version = +n.attr('lock_version');
     var published = +n.attr('published');
