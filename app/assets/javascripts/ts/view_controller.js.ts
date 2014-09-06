@@ -49,15 +49,11 @@ class ViewController {
   draw(keyword: string): void {
     var _this = this;
     var context = this.context;
-    $('#breadcrumb').html($.map(this.context.currentPath, function(x,i) {return "<span class='label' idx="+i+" style='background-color: "+ViewController.colorScale(i+1)+"'>"+_this.hescape(x)+"</span>"}).join(" > "));
-    $('#breadcrumb span').on('click', function(e) {
-      var idx = + $(this).attr("idx");
-      context.changeDepth(idx);
-      _this.removeAll();
-      _this.redraw();
-    });
+
+    this.drawBreadcrumb();
+
     this.drawElements(true, [new Keyword(0.5, 0.5, keyword)]);
-    var keywords = this.context.manager.keywords[keyword];
+    var keywords = context.manager.keywords[keyword];
     this.drawElements(false, keywords);
   }
 
@@ -89,6 +85,7 @@ class ViewController {
       .data(function(d){ return [d];})
       .enter()
       .append('ellipse')
+      .filter(function(d,i){ return !d.isImageUrl();})
       .attr({
         cx: 0,
         cy: 0,
@@ -105,16 +102,39 @@ class ViewController {
         ry: this.context.keywordProperty.ellipse_height
       });
 
+    gr.selectAll('image')
+      .data(function(d){ return [d];})
+      .enter()
+      .append('image')
+      .filter(function(d,i){ return d.isImageUrl();})
+      .attr({
+        x: -50,
+        y: -50,
+        width: 100,
+        height: 100,
+        'xlink:href': function(d,i){return d.url;}
+      });
+
     gr.selectAll('text')
       .data(function(d){ return [d];})
       .enter()
       .append('text')
       .text(function(d, i) {
-        return d.keyword;
+        if (d.url != null){
+          return d.alt;
+        } else {
+          return d.keyword;
+        }
       })
       .attr({
         x: 0,
-        y: (_this.context.keywordProperty.font_size / 2),
+        y: function(d,i){
+          var ret = _this.context.keywordProperty.font_size / 2;
+          if (d.url != null && d.alt != null){
+            ret = ret + 60;
+          }
+          return ret;
+        },
         'text-anchor': 'middle',
         'font-size': 0,
       })
@@ -189,5 +209,18 @@ class ViewController {
   private static colorScale = d3.scale.category10();
 
   private hescape(val:string):string { return $('<div />').text(val).html();}
+
+  private drawBreadcrumb() {
+    var _this = this;
+    var context = this.context;
+    $('#breadcrumb').html($.map(context.currentPath, function(x,i) {return "<span class='label' idx="+i+" style='background-color: "+ViewController.colorScale(i+1)+"'>"+_this.hescape(x)+"</span>"}).join(" > "));
+    $('#breadcrumb span').on('click', function(e) {
+      var idx = + $(this).attr("idx");
+      context.changeDepth(idx);
+      _this.removeAll();
+      _this.redraw();
+    });
+  }
+
 }
 
