@@ -4,6 +4,7 @@
 /// <reference path="ts/context.js.ts" />
 /// <reference path="ts/keyword.js.ts" />
 /// <reference path="ts/view_controller.js.ts" />
+// Seq: 1
 
 /* data image.
 var x = {
