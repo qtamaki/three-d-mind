@@ -17,7 +17,7 @@
   <div class="panel-heading">Your notes.</div>
   <div class="list-group">
     <% @notes.each do |note| %>
-      <li class="list-group-item"><div class="row"><div class="col-md-11"><%=back_to_link note.note_title, note_path(note) %></div><div class="col-md-1"><%= link_to '<i class="glyphicon glyphicon-remove-circle"></i>'.html_safe, note_path(note), :method => :delete, :data => {:confirm => "delete this note ?"} %></div></div></li>
+      <li class="list-group-item"><div class="row"><%=back_to_link "<div class='col-md-11'>#{h note.note_title}</div>".html_safe, note_path(note) %><div class="col-md-1"><%= link_to '<i class="glyphicon glyphicon-remove-circle"></i>'.html_safe, note_path(note), :method => :delete, :data => {:confirm => "delete this note ?"} %></div></div></li>
     <% end %>
   </div>
 </div>
