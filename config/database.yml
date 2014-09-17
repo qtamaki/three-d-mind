@@ -53,7 +53,7 @@ production:
   database: tdmind
   username: tdmind
   password: tdmind
-  host: <%= ENV.fetch('DB_PORT_3306_TCP_ADDR') %>
-  port: <%= ENV.fetch('DB_PORT_3306_TCP_PORT') %>
+  host: <%= ENV['DB_PORT_3306_TCP_ADDR'] %>
+  port: <%= ENV['DB_PORT_3306_TCP_PORT'] %>
 
 

@@ -1,3 +1,6 @@
+
+puts "config load"
+
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3) # 子プロセスいくつ立ち上げるか
 timeout 15 #15秒Railsが反応しなければWorkerをkillしてタイムアウト
 preload_app true #後述
@@ -10,8 +13,8 @@ listen 3000
 # pid /path/to/rails/tmp/pids/unicorn.pid
 
 # ログの設定方法.
-#stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
-#stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
+stderr_path File.expand_path('log/unicorn.err.log')
+stdout_path File.expand_path('log/unicorn.out.log')
 
 before_fork do |server, worker|
   old_pid = "#{ server.config[:pid] }.oldbin"
