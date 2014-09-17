@@ -50,6 +50,10 @@ test:
 #
 production:
   <<: *default
-  database: three-d-mind_production
-  username: three-d-mind
-  password: <%= ENV['THREE-D-MIND_DATABASE_PASSWORD'] %>
+  database: tdmind
+  username: tdmind
+  password: tdmind
+  host: <%= ENV.fetch('DB_PORT_3306_TCP_ADDR') %>
+  port: <%= ENV.fetch('DB_PORT_3306_TCP_PORT') %>
+
+
