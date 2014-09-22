@@ -82,3 +82,11 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: '3dmind.jp' }
 end
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.smtp_settings = {
+  :domain             => '3dmind.jp',
+  :enable_starttls_auto => false
+}
