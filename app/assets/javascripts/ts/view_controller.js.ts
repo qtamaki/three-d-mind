@@ -60,11 +60,11 @@ class ViewController {
   drawElements(theme_mode: boolean, keywords: Keyword[]): void {
     var class_name = "keyword";
     var drag_f = this.drag;
-    var color_scale = (this.context.currentPath.length + 1) % 10;
+    var color_scale = (this.context.currentPath.length + 1) % 12;
     if(theme_mode) {
       class_name = "theme";
       drag_f = function(d,i) {};
-      color_scale = (this.context.currentPath.length) % 10;
+      color_scale = (this.context.currentPath.length) % 12;
     }
     var _this = this;
     var gr = this.svg.selectAll('g.' + class_name)
@@ -206,7 +206,22 @@ class ViewController {
       });
   }
 
-  private static colorScale = d3.scale.category10();
+  private static colorScale = function(x:number) {
+    return [
+      "#69BD83",
+    "#61C1BE",
+    "#54C3F1",
+    "#6C9BD2",
+    "#796BAF",
+    "#BA79B1",
+    "#EE87B4",
+    "#EF858C",
+    "#EF845C",
+    "#F9C270",
+    "#FFF67F",
+    "#C1DB81"
+      ][x];
+  }
 
   private hescape(val:string):string { return $('<div />').text(val).html();}
 
