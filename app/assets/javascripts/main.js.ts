@@ -22,6 +22,9 @@ var x = {
   }
 }
 */
+
+function getMsg(attr): string { return $('#js_messages').attr(attr);}
+
 function initInputBox(view: ViewController) {
   $('#inputbox')
     .on('keydown', function(e) {
@@ -31,7 +34,7 @@ function initInputBox(view: ViewController) {
             view.addKeyword(this.value);
             this.value = '';
           } else {
-            alert("Keyword was existed yet.");
+            alert(getMsg("keyword_was_existed"));
           }
         }
         return false;
@@ -56,16 +59,17 @@ function initButton(view: ViewController, note_url: string) {
       success: (data) => {
         view.context.lockVersion = eval(data);
         view.changed = false;
-        alert('Ok, complited.');
+        alert(getMsg('save_was_completed'));
       }
     });
   });
   $('#publish_button').on('click', function(e) {
     var un = '';
     if(view.context.published == 1) {
-      un = 'un';
+      un = getMsg('un');
     }
-    if(window.confirm('Are you want to '+un+'publishing this page?')){
+    var msg = getMsg("confirm_message").replace("%un", un);
+    if(window.confirm(msg)){
       $.ajax({
         type: 'PUT',
         url: note_url,
@@ -79,14 +83,14 @@ function initButton(view: ViewController, note_url: string) {
           view.context.lockVersion = eval(data);
           view.context.published = (view.context.published + 1) % 2;
           if(view.context.published == 0) {
-            $(this).attr('value', "Publish");
+            $(this).attr('value', getMsg("publish_value"));
             $('#published_url').attr("style","display:none");
           }else{
-            $(this).attr('value', "Unpublish");
+            $(this).attr('value', getMsg("unpublish_value"));
             $('#published_url').attr("style","");
           }
 
-          alert(un+'published.');
+          alert(getMsg("complete_message").replace('%un', un));
         }
       });
     }

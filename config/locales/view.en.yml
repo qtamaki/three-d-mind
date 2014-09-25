@@ -1,0 +1,31 @@
+en:
+  view:
+    welcome_to_3dmind: Welcome to 3dmind!
+    3dmind_concept: 3dmind is the thinking auxiliary tools of a completely new Mind Map concept. Your thought is more powerfully supported by taking the form near thinking of man rather than an old Mind Map. 
+    get_start_now: Get start now!
+    auth:
+      sign_in: Sign in
+      sign_up: Sign up
+      forgot_your_password?: Forgot your password?
+      didnt_receive_confirmation_instructions?: Didn't receive confirmation instructions?
+      leave_blank_if: leave blank if you don't want to change it
+      we_need_your: we need your current password to confirm your changes
+    notes:
+      index:
+        3dmind_will: 3dmind will suppert your thinking.
+        3dmind_will_detail: Please open 3dmind, like when a brand-new note is opened. This is a tool which helps your thinking. You should just put the language thought of in order. 3dmind pulls out the capability with which your brain was equipped by nature to the utmost.
+        open_new_note: Open new note and think!
+      new:
+        create_new_note: Create new note
+      _form:
+        your_thinking_theme: yore thinkging themes
+      show:
+        publish: Pulish
+        unpublish: Unpublish
+        save: Save
+        confirm_message: This note is %unpublished. Is it all right? 
+        un: 非
+        complete_message: This note is %unpublished.
+
+
+

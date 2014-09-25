@@ -60,7 +60,7 @@ class NotesController < ApplicationController
     @note.deleted_at = Time.now
     @note.updated_user = current_user.login
     @note.save!
-    redirect_to notes_url, notice: 'Note was successfully destroyed.'
+    redirect_to notes_url, notice: t('view.notes.note_was_successfully_destroyed')
   end
 
   private

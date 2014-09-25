@@ -1,9 +1,17 @@
 <div id="note-container" note_id="<%=@note.id%>" note_url="<%=@read_only ? pub_note_path(@note, :json) : note_path(@note, :json)%>" lock_version="<%=@note.lock_version%>" published="<%=@note.published%>" read_only="<%=@read_only ? "1" : "0" %>">
     <% if !@read_only %><input type="text" id='inputbox' placeholder="Input some words"><%end%><div id="breadcrumb" <%= @read_only ? "style='left:0px;'".html_safe : "style='left:230px;'".html_safe%>></div>
     <% if !@read_only %>
-        <div id="published_url" style="<%= @note.published? ? "" : "display:none"%>">Published url: <input type="text" value="<%=pub_note_path(@note, :only_path => false)%>"></div>
-        <input type="button" id='publish_button' value="<%=@note.published? ? 'Unpublish' : 'Publish' %>" class="btn btn-info btn-md">
-        <input type="button" id='save_button' value="Save" class="btn btn-primary btn-md">
+      <div id="published_url" style="<%= @note.published? ? "" : "display:none"%>"><%=t "view.notes.show.published_url"%>: <input type="text" value="<%=pub_note_path(@note, :only_path => false)%>"></div>
+        <input type="button" id='publish_button' confirm_message="<%=t("view.notes.show.confirm_message")%>" un="<%=t("view.notes.show.un")%>" publish_value="<%= t("view.notes.show.publish")%>" unpublish_value="<%= t("view.notes.show.unpublish")%>" value="<%=@note.published? ? t("view.notes.show.unpublish") : t("view.notes.show.publish") %>" class="btn btn-info btn-md">
+        <input type="button" id='save_button' value="<%=t("view.notes.show.save")%>" class="btn btn-primary btn-md">
     <% end %>
 </div>
-
+<span id="js_messages" style="display:none"
+  confirm_message="<%=t("view.notes.show.confirm_message")%>"
+  un="<%=t("view.notes.show.un")%>"
+  publish_value="<%= t("view.notes.show.publish")%>"
+  unpublish_value="<%= t("view.notes.show.unpublish")%>"
+  complete_message="<%=t("view.notes.show.complete_message")%>"
+  save_was_completed="<%=t("view.notes.show.save_was_completed")%>"
+  keyword_was_existed="<%=t("view.notes.show.keyword_was_existed")%>"
+  ></span> 

@@ -1,0 +1,98 @@
+ja:
+  activerecord:
+    models:
+      name: name  #g
+      note: ノート
+      sys_config: sys_config  #g
+      type: type  #g
+      user: ユーザー
+
+    attributes:
+      name:
+        created_user: created_user  #g
+        deleted: deleted  #g
+        deleted_at: deleted_at  #g
+        lock_version: lock_version  #g
+        long_name: long_name  #g
+        name_description: name_description  #g
+        name_key: name_key  #g
+        name_locale: name_locale  #g
+        name_section: name_section  #g
+        other_name: other_name  #g
+        short_name: short_name  #g
+        updated_user: updated_user  #g
+
+      note:
+        created_user: created_user  #g
+        deleted: deleted  #g
+        deleted_at: deleted_at  #g
+        lock_version: lock_version  #g
+        note_contents: note_contents  #g
+        note_title: タイトル
+        published: 公開
+        updated_user: updated_user  #g
+
+      sys_config:
+        config_description_text: config_description_text  #g
+        config_key: config_key  #g
+        config_section: config_section  #g
+        created_user: created_user  #g
+        deleted: deleted  #g
+        deleted_at: deleted_at  #g
+        lock_version: lock_version  #g
+        updated_user: updated_user  #g
+        value1: value1  #g
+        value2: value2  #g
+        value3: value3  #g
+        value_long: value_long  #g
+
+      type:
+        created_user: created_user  #g
+        deleted: deleted  #g
+        deleted_at: deleted_at  #g
+        display_order1: display_order1  #g
+        display_order2: display_order2  #g
+        lock_version: lock_version  #g
+        logic_bind_type: logic_bind_type  #g
+        long_name: long_name  #g
+        other_name: other_name  #g
+        short_name: short_name  #g
+        type_description: type_description  #g
+        type_description_text: type_description_text  #g
+        type_key: type_key  #g
+        type_section: type_section  #g
+        updated_user: updated_user  #g
+
+      user:
+        current_password: 現在のパスワード
+        remember_me: ログイン状態を記憶する
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        access_level_type: access_level_type  #g
+        authentication_token: authentication_token  #g
+        confirmation_sent_at: confirmation_sent_at  #g
+        confirmation_token: confirmation_token  #g
+        confirmed_at: confirmed_at  #g
+        created_user: created_user  #g
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        deleted: deleted  #g
+        deleted_at: deleted_at  #g
+        email: Eメール
+        encrypted_password: encrypted_password  #g
+        failed_attempts: failed_attempts  #g
+        fullname: fullname  #g
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        lock_version: lock_version  #g
+        locked_at: locked_at  #g
+        login: login  #g
+        nickname: ニックネーム
+        per_page: per_page  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+        shortname: shortname  #g
+        unconfirmed_email: unconfirmed_email  #g
+        unlock_token: unlock_token  #g
+        updated_user: updated_user  #g

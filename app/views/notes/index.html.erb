@@ -1,13 +1,9 @@
 <% if @notes.empty? %>
   <div class="jumbotron">
-    <h1>3dmind will suppert your thinking.</h1>
-    <p>Please open 3dmind, like when a brand-new note is opened. 
-    This is a tool which helps your thinking. 
-    You should just put the language thought of in order. 
-    3dmind pulls out the capability with which your brain was equipped by nature to the utmost. 
-    </p>
+    <%= content_tag :h1, t('view.notes.index.3dmind_will') %>
+    <%= content_tag :p, t('view.notes.index.3dmind_will_detail') %>
     <p>
-    <%= back_to_link 'Open new note and think!', new_note_path, :class => "btn btn-primary btn-lg", :role=>"button" %>
+    <%= back_to_link t('view.notes.index.open_new_note'), new_note_path, :class => "btn btn-primary btn-lg", :role=>"button" %>
     </p>
   </div>
 <% else %>
@@ -17,13 +13,13 @@
   <div class="panel-heading">Your notes.</div>
   <div class="list-group">
     <% @notes.each do |note| %>
-      <li class="list-group-item"><div class="row"><%=back_to_link "<div class='col-md-11'>#{h note.note_title}#{note.published? ? " <span class='label label-default'>Shared</span>" : ""}</div>".html_safe, note_path(note) %><div class="col-md-1"><%= link_to '<i class="glyphicon glyphicon-remove-circle"></i>'.html_safe, note_path(note), :method => :delete, :data => {:confirm => "delete this note ?"} %></div></div></li>
+      <li class="list-group-item"><div class="row"><%=back_to_link "<div class='col-md-11'>#{h note.note_title}#{note.published? ? " <span class='label label-default'>Shared</span>" : ""}</div>".html_safe, note_path(note) %><div class="col-md-1"><%= link_to '<i class="glyphicon glyphicon-remove-circle"></i>'.html_safe, note_path(note), :method => :delete, :data => {:confirm => t("view.notes.index.delete_this_note?")} %></div></div></li>
     <% end %>
   </div>
 </div>
   <div class="list-group">
   <p>
-  <%= back_to_link '<i class="glyphicon glyphicon-file"></i> New note'.html_safe, new_note_path, :class => "btn btn-primary btn-md", :role=>"button" %>
+    <%= back_to_link "<i class='glyphicon glyphicon-file'></i> #{t "view.notes.new.create_new_note"}".html_safe, new_note_path, :class => "btn btn-primary btn-md", :role=>"button" %>
     </p>
   </div>
 </div>

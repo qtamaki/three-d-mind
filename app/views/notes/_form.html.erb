@@ -15,10 +15,10 @@
 
   <div class="col-md-8">
 <div class="form-group">
-  <%= f.label :note_title, "Note title (Theme of your thinking.)"  %>
+  <%= f.label :note_title %> (<%=t("view.notes._form.your_thinking_theme")%>)
   <%= f.text_field :note_title, {:class => "form-control"} %>
 </div>
   <%= f.submit :class => "btn btn-primary btn-md" %>
-  <%= link_or_back 'Back', notes_path, :class => "btn btn-default btn-md" %>
+  <%= link_or_back t('view.back'), notes_path, :class => "btn btn-default btn-md" %>
   </div>
 <% end %>

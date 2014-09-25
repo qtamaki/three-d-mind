@@ -1,0 +1,41 @@
+ja:
+  view:
+    update: 更新
+    back: 戻る
+    welcome_to_3dmind: ようこそ3dmindへ!
+    3dmind_concept: 3dmindは、マインドマップをコンセプトにした思考補助ツールです。人間の思考方法により近いこと、シンプルな入力と表現方法により、貴方の思考をより強力にサポートします。
+    get_start_now: 今すぐはじめる！
+    auth:
+      edit_account_settings: アカウントの設定変更
+      cancel_my_account: 登録解除
+      unhappy?: 登録解除致します。またのご利用をお願い致します。
+      settings: 設定変更
+      sign_out: ログアウト
+      sign_in: ログイン
+      sign_up: 会員登録
+      forgot_your_password?: パスワードを忘れた方
+      didnt_receive_confirmation_instructions?: 会員登録の確認メールを再送する
+      leave_blank_if: パスワードを変更しない場合ブランクにしてください
+      we_need_your: 設定を変更するためには、現在のパスワードが必要です
+    notes:
+      note_was_successfully_destroyed: ノートを削除しました
+      index:
+        delete_this_note?: このノートを削除します。よろしいですか？
+        3dmind_will: 3dmindは貴方の考えを一歩先へ進めます
+        3dmind_will_detail: 新しいノートを開き、3dmindを始めてください。3dmindは、貴方の思考を助ける新しいツールです。テーマにそって思いつく単語を１つ２つと並べていくと不思議なことが起きます。3dmindは、貴方の脳力を最大限まで引き出し、自分でも驚くような結果に貴方を連れて行くでしょう。
+        open_new_note: ノートの新規作成
+      new:
+        create_new_note: ノートの新規作成
+      _form:
+        your_thinking_theme: 思考テーマ
+      show:
+        publish: 公開する
+        unpublish: 公開しない
+        save: 保存
+        confirm_message: このノートを%un公開にします。よろしいですか？
+        un: 非
+        complete_message: このノートを%un公開にしました。
+        published_url: 公開用URL
+        save_was_completed: 保存できました
+        keyword_was_existed: この単語は既に入力済みです
+
