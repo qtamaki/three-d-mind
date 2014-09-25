@@ -47,11 +47,16 @@ class Context {
       return 0;
     }
   }
-
+/*
   ratioToHeight(x: number): number { return x * (this.stageHeight - this.keywordProperty.ellipse_height) + (this.keywordProperty.ellipse_height / 2) }
   ratioToWidth(x: number): number { return x * (this.stageWidth - this.keywordProperty.ellipse_width) + (this.keywordProperty.ellipse_width / 2) }
   heightToRatio(x: number): number { return (x - (this.keywordProperty.ellipse_height / 2)) / (this.stageHeight - this.keywordProperty.ellipse_height) }
   widthToRatio(x: number): number { return (x - (this.keywordProperty.ellipse_width / 2)) / (this.stageWidth - this.keywordProperty.ellipse_width) }
+*/
+  ratioToHeight(x: number): number { return x * this.stageHeight;}
+  ratioToWidth(x: number): number { return x * this.stageWidth;}
+  heightToRatio(x: number): number { return x / this.stageHeight;}
+  widthToRatio(x: number): number { return x / this.stageWidth;}
 
   calcTubuCX(i: number): number { return (this.keywordProperty.ellipse_width * Math.sin(i * 10 * (Math.PI / 180)));}
   calcTubuCY(i: number): number { return (this.keywordProperty.ellipse_height * Math.cos(i * 10 * (Math.PI / 180)));}

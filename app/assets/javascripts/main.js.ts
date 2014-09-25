@@ -4,7 +4,7 @@
 /// <reference path="ts/context.js.ts" />
 /// <reference path="ts/keyword.js.ts" />
 /// <reference path="ts/view_controller.js.ts" />
-// Seq: 3
+// Seq: 4
 
 /* data image.
 var x = {
@@ -103,7 +103,7 @@ function init(note_data: any, note_url: string, lock_version: number, published:
   manager.loadData(note_data);
 
   var context = new Context(
-      document.documentElement.clientHeight,
+      document.documentElement.clientHeight - 70,
       document.documentElement.clientWidth,
       1,
       manager, lock_version, published, read_only);
@@ -112,7 +112,7 @@ function init(note_data: any, note_url: string, lock_version: number, published:
     .append('svg')
     .attr({xmlns: "http://www.w3.org/2000/svg",
       width: context.stageWidth,
-      height: context.stageHeight - 70})
+      height: context.stageHeight})
 
   var view = new ViewController(d3.select('svg'), context);
   view.draw(manager.rootKeyword);

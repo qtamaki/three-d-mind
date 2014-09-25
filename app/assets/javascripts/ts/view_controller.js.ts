@@ -25,6 +25,7 @@ class ViewController {
         _this.changed = true;
       })
       .on('dragend', function(d,i) {
+        console.dir(d);
         if(d.px > 1 || d.py > 1 || d.px < 0 || d.py < 0) {
           var x = context.childKeywords();
           x.splice(x.indexOf(d), 1);
