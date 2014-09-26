@@ -7,4 +7,6 @@ class HomeController < ApplicationController
       redirect_to new_auth_session_path
     end
   end
+  def help
+  end
 end

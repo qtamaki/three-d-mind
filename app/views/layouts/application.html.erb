@@ -32,8 +32,8 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="global-manu-navbar-collapse">
-      <% if logged_in? && !popup? %>
         <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? && !popup? %>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <%= "#{current_user && current_user.nickname} <#{current_user.login}>" %></a>
           <ul class="dropdown-menu">
@@ -41,8 +41,9 @@
             <li><%= link_to t("view.auth.sign_out"), destroy_auth_session_path, :method => :delete %></li>
           </ul>
           </li>
+          <% end %><%# logged_in? %>
+          <li><%= link_to "<i class='glyphicon glyphicon-question-sign'></i>".html_safe, {:controller => '/help'}, :style => "padding-left: 0px; padding-right: 0px;" %></li>
         </ul>    
-      <% end %><%# logged_in? %>
     </div>
   </div>
 </nav>

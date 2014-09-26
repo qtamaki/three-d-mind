@@ -3,6 +3,7 @@
   <div class="jumbotron">
     <h1><%=t('view.welcome_to_3dmind')%></h1>
     <p><%=t('view.3dmind_concept')%></p>
+    <p style="text-align: center;"><%= image_tag 'help/3dmind.png' %></p>
     <p>
     <%= link_to t("view.get_start_now"), new_registration_path(resource_name), :class => "btn btn-primary btn-lg", :role=>"button" %><br />
     </p>
