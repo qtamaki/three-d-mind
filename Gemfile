@@ -53,3 +53,5 @@ gem 'kaminari'
 
 gem "haml-rails"
 
+gem 'dkim', :git => 'git://github.com/jhawthorn/dkim.git'
+

@@ -90,3 +90,10 @@ ActionMailer::Base.smtp_settings = {
   :domain             => '3dmind.jp',
   :enable_starttls_auto => false
 }
+
+Dkim::domain      = '3dmind.jp'
+Dkim::identity    = 'error@3dmind.jp'
+Dkim::selector    = 'default'
+Dkim::private_key = open('config/3dmind.jp.dkim.key').read
+ActionMailer::Base.register_interceptor(Dkim::Interceptor)
+
