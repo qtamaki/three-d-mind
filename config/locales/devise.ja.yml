@@ -1,0 +1,10 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: "3dmindのアカウントが作成されました。メールアドレス認証をお願いします"
+      reset_password_instructions:
+        subject: "3dmindのアカウントパスワードを初期化します"
+
