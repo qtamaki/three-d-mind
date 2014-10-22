@@ -1,6 +1,17 @@
-<p>3dmindへようこそ <%= @resource.nickname %> さん!</p>
+3dmindへようこそ <%= @resource.nickname %> さん!
 
-<p>下記のリンクをクリックして本登録を完了させてください。ログインできるようになります。</p>
+下記のURLリンクをクリックして本登録を完了させてください。
 
-<p><%= link_to '本登録を完了させる', confirmation_url(@resource, confirmation_token: @token) %></p>
+本登録を完了させる: <%= url_for confirmation_url(@resource, confirmation_token: @token) %>
+
+※ 上記のURLリンクをクリックしても反応が無い場合は、URLをコピーして新しいウィンドウに貼り付けて下さい。
+
+3dmindが素晴らしい体験になりますように。
+
+--
+
+3dmind事務局
+mail: info@3dmind.jp
+URL: https://3dmind.jp
+
 
